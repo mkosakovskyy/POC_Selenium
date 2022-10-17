@@ -1,13 +1,17 @@
 package com.prisa.poc.pages;
 
 import com.prisa.poc.utils.MyFluentWait;
+
+import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Slf4j
 public abstract class AbstractPage {
@@ -94,5 +98,13 @@ public abstract class AbstractPage {
         Actions move = new Actions(driver);
         Action action = (Action) move.dragAndDropBy(slider, xOffset, yOffset).build();
         action.perform();
+    }
+
+    public void waitForPageLoad() {
+        try {
+            WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elem));
+        } catch (NoSuchElementException e) {}
+        try { Thread.sleep(5000); } catch (InterruptedException e) { throw new RuntimeException(e); }
     }
 }

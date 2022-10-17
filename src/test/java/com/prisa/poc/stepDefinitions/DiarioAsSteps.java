@@ -33,7 +33,7 @@ public class DiarioAsSteps {
     @And("The user accepts cookies pop-up")
     public void theUserAcceptsCookies() {
         homePage.clickAcceptCookies();
-        pf.waitForPageLoad();
+        homePage.waitForPageLoad();
     }
 
     @When("The user access Atletico de Madrid within the Futbol section")
@@ -41,7 +41,7 @@ public class DiarioAsSteps {
 
     @Then("The Atletico de Madrid team page is correct")
     public void theAtleticoPageIsCorrect() {
-        pf.waitForPageLoad();
+        newsPage.waitForPageLoad();
         Assert.assertEquals("El usuario no se encuentra en la página de noticias del Atletico de Madrid", NewsPage.ATLETICO_URL, pf.getUrl());
     }
 
@@ -58,7 +58,7 @@ public class DiarioAsSteps {
     @Then("The user is redirected to the home page")
     public void theUserIsRedirectedToTheHomePage() {
         // Redirecciona a Latino US
-        pf.waitForPageLoad();
+        homePage.waitForPageLoad();
         homePage.redirectSpain();
         Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, pf.getUrl());
     }

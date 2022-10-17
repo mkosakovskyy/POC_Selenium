@@ -43,11 +43,4 @@ public class PagesFactory {
     public WebDriver getDriver() { return driver; }
 
     public String getUrl() { return driver.getCurrentUrl(); }
-
-    public void waitForPageLoad() {
-        try {
-            WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elem));
-        } catch (NoSuchElementException e) {}
-    }
 }

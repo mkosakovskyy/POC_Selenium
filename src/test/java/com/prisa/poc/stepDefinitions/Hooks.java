@@ -50,6 +50,7 @@ public class Hooks {
                 optionsChrome.addArguments("--headless");
                 optionsChrome.addArguments("--no-sandbox");
                 optionsChrome.addArguments("--disable-dev-shm-usage");
+                optionsChrome.addArguments("--disable-web-security");
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);

@@ -37,8 +37,9 @@ public class NewsPage extends AbstractPage {
     public void waitForAdvertisements() {
         try {
             WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(35)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elem));
         } catch (NoSuchElementException e) {}
+        try { Thread.sleep(5000); } catch (InterruptedException e) { throw new RuntimeException(e); }
     }
 
     public boolean areAdvertisementDisplayed(DataTable table) {
