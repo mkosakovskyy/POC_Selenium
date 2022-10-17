@@ -91,15 +91,3 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
-
-      - name: Post the Allure link in the commit status
-        if: always()
-        uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{secrets.GITHUB_TOKEN}}
-          context: 'Allure Reports'
-          description: 'Pulsa "Details" para acceder al reporte'
-          state: 'success'
-          owner: mkosakovskyy
-          sha: ${{github.event.pull_request.head.sha || github.sha}}
-          target_url: https://hiberus-prisa-qa-devops.github.io/POC_Selenium/${{github.run_number}}
