@@ -100,6 +100,6 @@ jobs:
           context: 'Allure Reports'
           description: 'Pulsa "Details" para acceder al reporte'
           state: 'success'
-          owner: mkosakovskyy
+          owner: @mkosakovskyy
           sha: ${{github.event.pull_request.head.sha || github.sha}}
           target_url: https://hiberus-prisa-qa-devops.github.io/POC_Selenium/${{github.run_number}}
