@@ -2,8 +2,8 @@
 
 ## ESTADO
 
-[![Selenium - POC de Prisa](https://github.com/mkosakovskyy/poc_prisa/actions/workflows/prisaPoc.yml/badge.svg)](https://github.com/mkosakovskyy/poc_prisa/actions/workflows/prisaPoc.yml)
+[![Selenium - POC de Prisa](https://github.com/hiberus-prisa-qa-devops/POC_Selenium/actions/workflows/prisaPoc.yml/badge.svg)](https://github.com/hiberus-prisa-qa-devops/POC_Selenium/actions/workflows/prisaPoc.yml)
 
 ## REPORTE
 
-https://mkosakovskyy.github.io/poc_prisa/
+https://hiberus-prisa-qa-devops.github.io/POC_Selenium/

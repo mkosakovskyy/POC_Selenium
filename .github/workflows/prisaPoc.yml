@@ -101,4 +101,4 @@ jobs:
           description: 'Pulsa "Details" para acceder al reporte'
           state: 'success'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
-          target_url: https://mkosakovskyy.github.io/poc_prisa/${{github.run_number}}
+          target_url: https://hiberus-prisa-qa-devops.github.io/POC_Selenium/${{github.run_number}}
