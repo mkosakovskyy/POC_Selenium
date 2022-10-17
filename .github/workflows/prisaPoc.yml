@@ -9,8 +9,8 @@ on:
         required: true
         options:
           - chrome
-          - firefox (proximamente)
-          - safari (proximamente)
+          - firefox
+          - safari
 
 jobs:
   Chrome:
@@ -25,45 +25,45 @@ jobs:
           cache: maven
 
       - name: Run Selenium with Maven
-        run: mvn clean test -Dbrowser=chrome
+        run: mvn clean test -Dbrowser=${{ github.event.inputs.browser.options }}
 
       - name: Generate artifact for ExtentReports PDF
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: extent_pdf
           path: ./extent-reports/pdf
 
       - name: Generate artifact for ExtentReports JSON
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: extent_json
           path: ./extent-reports/json
 
       - name: Generate artifact for ExtentReports Advanced HTML
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: extent_index
           path: ./extent-reports/html
 
       - name: Generate artifact for ExtentReports Spark HTML
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: extent_html
           path: ./extent-reports/spark
 
       - name: Generate artifact for Cucumber Basic HTML
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cucumber_html
           path: ./cucumber-reporting/html
 
       - name: Generate artifact for Cucumber HTML Reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cucumber_html_report
