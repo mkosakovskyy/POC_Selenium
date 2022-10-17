@@ -9,8 +9,8 @@ on:
         required: true
         options:
           - chrome
-          - firefox (not working)
-          - edge (not working)
+          - firefox (cooming soon)
+          - safari (cooming soon)
 
 jobs:
   Chrome:
