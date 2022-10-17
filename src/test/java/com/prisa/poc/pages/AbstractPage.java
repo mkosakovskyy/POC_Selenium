@@ -103,8 +103,8 @@ public abstract class AbstractPage {
     public void waitForPageLoad() {
         try {
             WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(elem));
         } catch (NoSuchElementException e) {}
-        try { Thread.sleep(5000); } catch (InterruptedException e) { throw new RuntimeException(e); }
+        try { Thread.sleep(3000); } catch (InterruptedException e) { throw new RuntimeException(e); }
     }
 }
