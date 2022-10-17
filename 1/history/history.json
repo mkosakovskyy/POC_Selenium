@@ -1,1 +1,0 @@
-{"957972196b4dbe10b33d85d7106ede40":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"ee488d529762c99a","reportUrl":"https://hiberus-prisa-qa-devops.github.io/POC_Selenium/1//#testresult/ee488d529762c99a","status":"passed","time":{"start":1665989211857,"stop":1665989259070,"duration":47213}}]}}
