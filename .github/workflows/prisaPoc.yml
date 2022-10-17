@@ -15,7 +15,7 @@ jobs:
           cache: maven
 
       - name: Run Selenium with Maven
-        run: mvn -B package --file pom.xml -Dbrowser=chrome
+        run: mvn clean test -Dbrowser=chrome
 
       - name: Generate artifact for ExtentReports PDF
         uses: actions/upload-artifact@v2
