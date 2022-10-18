@@ -14,7 +14,7 @@ on:
 
 jobs:
   Selenium:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -23,6 +23,18 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
+
+      # install drivers
+      - name: Enable Safari Driver
+        run: |
+          # Workaround for `sudo safardriver --enable` not working:
+          # https://github.com/web-platform-tests/wpt/issues/19845
+          # https://github.com/web-platform-tests/wpt/blob/master/tools/ci/azure/install_safari.yml
+          mkdir -p ~/Library/WebDriver/
+          curl https://raw.githubusercontent.com/web-platform-tests/wpt/master/tools/ci/azure/com.apple.Safari.plist -o ~/Library/WebDriver/com.apple.Safari.plist
+          defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically 1
+          # sudo safaridriver --enable
+        if: ${{ github.event.inputs.browser }} == 'safari'
 
       - name: Run Selenium with Maven
         run: mvn clean test -Dbrowser=${{ github.event.inputs.browser }}
