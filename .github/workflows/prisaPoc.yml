@@ -13,7 +13,7 @@ on:
           - safari
 
 jobs:
-  Chrome:
+  Selenium:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
           cache: maven
 
       - name: Run Selenium with Maven
-        run: mvn clean test -Dbrowser=${{ github.event.inputs.browser.options }}
+        run: mvn clean test -Dbrowser=${{ github.event.inputs.browser }}
 
       - name: Generate artifact for ExtentReports PDF
         uses: actions/upload-artifact@v3
