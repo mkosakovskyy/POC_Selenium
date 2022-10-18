@@ -24,6 +24,11 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      # install drivers
+      - name: Enable Safari Driver
+        run: |
+          sudo safaridriver --enable
+          safaridriver -p 0 &
 
       - name: Run Selenium with Maven
         run: mvn clean test -Dbrowser=${{ github.event.inputs.browser }}
