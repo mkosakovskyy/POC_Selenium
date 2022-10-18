@@ -2,6 +2,7 @@ package com.prisa.poc.pages;
 
 import com.prisa.poc.locators.HeaderLocators;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 public class HeaderPage extends AbstractPage {
@@ -19,8 +20,11 @@ public class HeaderPage extends AbstractPage {
     /** Actions */
 
     public void clickMenuAtletico() {
-        moveTo(headerLoc.dropdownFutbol);
-        headerLoc.optionAtletico.click();
+        //moveTo(headerLoc.dropdownFutbol);
+        //headerLoc.optionAtletico.click();
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(headerLoc.dropdownFutbol).perform();
+        actions.moveToElement(headerLoc.optionAtletico).click().perform();
     }
 
     public void clickMenuFormulaOne() {
