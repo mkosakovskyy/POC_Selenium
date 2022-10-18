@@ -23,8 +23,9 @@ public class HeaderPage extends AbstractPage {
         //moveTo(headerLoc.dropdownFutbol);
         //headerLoc.optionAtletico.click();
         Actions actions = new Actions(getDriver());
-        actions.moveToElement(headerLoc.dropdownFutbol).perform();
-        actions.moveToElement(headerLoc.optionAtletico).click().perform();
+        actions.moveToElement(headerLoc.dropdownFutbol).build().perform();
+        try { Thread.sleep(3000); } catch (InterruptedException e) { throw new RuntimeException(e); }
+        actions.moveToElement(headerLoc.optionAtletico).click().build().perform();
     }
 
     public void clickMenuFormulaOne() {
