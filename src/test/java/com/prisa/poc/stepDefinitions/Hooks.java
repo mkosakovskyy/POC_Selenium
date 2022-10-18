@@ -51,6 +51,7 @@ public class Hooks {
                 optionsChrome.addArguments("--no-sandbox");
                 optionsChrome.addArguments("--disable-dev-shm-usage");
                 optionsChrome.addArguments("--disable-web-security");
+                optionsChrome.addArguments("--enable-javascript");
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
