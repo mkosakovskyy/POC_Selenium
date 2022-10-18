@@ -3,6 +3,13 @@ name: Selenium - POC de Prisa
 on:
   workflow_dispatch:
     inputs:
+      os:
+        type: choice
+        description: Elije el sistema operativo
+        required: true
+        options:
+          - ubuntu-latest
+          - macos-latest
       browser:
         type: choice
         description: Elije el navegador
@@ -14,7 +21,7 @@ on:
 
 jobs:
   selenium:
-    runs-on: macos-latest
+    runs-on: ${{ github.event.inputs.os }}
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -23,7 +30,6 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
-
       - name: Run Selenium with Maven
         run: mvn clean test -Dbrowser=${{ github.event.inputs.browser }}
 
