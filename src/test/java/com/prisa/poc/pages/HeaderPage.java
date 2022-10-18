@@ -29,8 +29,12 @@ public class HeaderPage extends AbstractPage {
     }
 
     public void clickMenuFormulaOne() {
-        moveTo(headerLoc.dropdownMotor);
-        headerLoc.optionFormulaOne.click();
+        //moveTo(headerLoc.dropdownMotor);
+        //headerLoc.optionFormulaOne.click();
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(headerLoc.dropdownMotor).build().perform();
+        try { Thread.sleep(3000); } catch (InterruptedException e) { throw new RuntimeException(e); }
+        actions.moveToElement(headerLoc.optionFormulaOne).click().build().perform();
     }
 
     public void clickHeaderLogo() {
