@@ -5,7 +5,6 @@ run-name: selenium - macos-latest - ${{ inputs.browser }}
 on:
   workflow_dispatch:
     inputs:
-      os:
       browser:
         type: choice
         description: Elije el navegador
