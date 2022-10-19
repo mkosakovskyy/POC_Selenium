@@ -1,4 +1,4 @@
-name: Selenium - POC de Prisa ${{ github.event.inputs.os }}
+name: Selenium - POC de Prisa
 
 on:
   workflow_dispatch:
