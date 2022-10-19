@@ -62,19 +62,15 @@ public class Hooks {
         PagesFactory.start(driver);
     }
 
-    @AfterStep
-    public void safari(Scenario scenario) {
+    /** Embed a screenshot in test report if test is marked as failed */
+    @After
+    public void tearDown() {
         try {
             final byte[] screenByte = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenByte, "image/png", scenario.getName());
         } catch (WebDriverException somePlatformsDontSupportScreenshots) {
             System.err.println(somePlatformsDontSupportScreenshots.getMessage());
         }
-    }
-
-    /** Embed a screenshot in test report if test is marked as failed */
-    @After
-    public void tearDown() {
         driver.quit();
     }
 
