@@ -82,8 +82,7 @@ public abstract class AbstractPage {
         if (((RemoteWebDriver) driver).getCapabilities().getBrowserName().equals("firefox")) {
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elem);
         } else {
-            Actions actions = new Actions(driver);
-            actions.moveToElement(elem).build().perform();
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elem);
         }
     }
 
