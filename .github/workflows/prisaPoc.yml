@@ -10,6 +10,7 @@ on:
         options:
           - ubuntu-latest
           - macos-latest
+
       browser:
         type: choice
         description: Elije el navegador
@@ -24,12 +25,17 @@ jobs:
     runs-on: ${{ github.event.inputs.os }}
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
+
+      - name: Check Chrome
+        run: google-chrome --version
+
       - name: Run Selenium with Maven
         run: mvn clean test -Dbrowser=${{ github.event.inputs.browser }}
 
