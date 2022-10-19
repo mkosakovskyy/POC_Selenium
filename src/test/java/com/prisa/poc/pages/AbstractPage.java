@@ -112,8 +112,7 @@ public abstract class AbstractPage {
     public void waitForAdvertisementLoad() {
         try {
             WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(elem));
         } catch (NoSuchElementException | NoSuchFrameException e) {}
-        // try { Thread.sleep(3000); } catch (InterruptedException e) { throw new RuntimeException(e); }
     }
 }

@@ -49,13 +49,6 @@ public class Hooks {
                 System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionsChrome = new ChromeOptions();
-                // optionsChrome.addArguments("--headless");
-                optionsChrome.addArguments("--no-sandbox");
-                optionsChrome.addArguments("--disable-gpu");
-                optionsChrome.addArguments("--disable-dev-shm-usage");
-                optionsChrome.addArguments("--disable-web-security");
-                optionsChrome.addArguments("--enable-javascript");
-                optionsChrome.addArguments("--remote-debugging-port=9222");
                 optionsChrome.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(optionsChrome);
         }
