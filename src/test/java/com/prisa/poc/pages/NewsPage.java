@@ -31,14 +31,6 @@ public class NewsPage extends AbstractPage {
 
     public void clickFacebook() { newsLoc.btnFacebook.click(); }
 
-    public void waitForAdvertisements() {
-        try {
-            WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elem));
-        } catch (NoSuchElementException | NoSuchFrameException e) {}
-        // try { Thread.sleep(3000); } catch (InterruptedException e) { throw new RuntimeException(e); }
-    }
-
     public boolean areAdvertisementDisplayed(DataTable table) {
         boolean isPresent = false;
         try {

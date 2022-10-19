@@ -58,8 +58,8 @@ public class DiarioAsSteps {
     @Then("The user is redirected to the home page")
     public void theUserIsRedirectedToTheHomePage() {
         // Redirecciona a Latino US
-        homePage.waitForPageLoad();
         homePage.redirectSpain();
+        homePage.waitForPageLoad();
         Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, pf.getUrl());
     }
 
@@ -87,7 +87,7 @@ public class DiarioAsSteps {
 
     @Then("The Formula One league page is correct")
     public void theFormulaLeaguePageIsCorrect() {
-        newsPage.waitForAdvertisements();
+        newsPage.waitForPageLoad();
         Assert.assertEquals("El usuario no se encuentra en la página de noticias de la Formula Uno", NewsPage.FORMULA_URL, pf.getUrl());
     }
 

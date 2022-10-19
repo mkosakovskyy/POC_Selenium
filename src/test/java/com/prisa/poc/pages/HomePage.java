@@ -32,7 +32,6 @@ public class HomePage extends AbstractPage {
     public void clickAcceptCookies() {
         try {
             new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(homeLoc.btnAcceptCookies));
-            try { Thread.sleep(1000); } catch (InterruptedException e) { throw new RuntimeException(e); }
             if (isElementPresent(homeLoc.btnAcceptCookies)) {
                 homeLoc.btnAcceptCookies.click();
             }

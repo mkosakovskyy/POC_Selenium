@@ -4,6 +4,10 @@ import com.prisa.poc.locators.HeaderLocators;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HeaderPage extends AbstractPage {
 
@@ -22,14 +26,14 @@ public class HeaderPage extends AbstractPage {
     public void clickMenuAtletico() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(headerLoc.dropdownFutbol).build().perform();
-        try { Thread.sleep(1000); } catch (InterruptedException e) { throw new RuntimeException(e); }
+        new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(headerLoc.optionAtletico));
         actions.moveToElement(headerLoc.optionAtletico).click().build().perform();
     }
 
     public void clickMenuFormulaOne() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(headerLoc.dropdownMotor).build().perform();
-        try { Thread.sleep(1000); } catch (InterruptedException e) { throw new RuntimeException(e); }
+        new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(headerLoc.optionFormulaOne));
         actions.moveToElement(headerLoc.optionFormulaOne).click().build().perform();
     }
 
