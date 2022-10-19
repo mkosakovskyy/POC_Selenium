@@ -2,6 +2,7 @@ package com.prisa.poc.pages;
 
 import com.prisa.poc.locators.HeaderLocators;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,6 +23,11 @@ public class HeaderPage extends AbstractPage {
     }
 
     /** Actions */
+
+    @Override
+    public WebElement getPageLoadedTestElement() {
+        return null;
+    }
 
     public void clickMenuAtletico() {
         Actions actions = new Actions(getDriver());

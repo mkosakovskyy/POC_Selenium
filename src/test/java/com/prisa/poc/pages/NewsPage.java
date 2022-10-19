@@ -5,9 +5,6 @@ import io.cucumber.datatable.DataTable;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
 @Slf4j
 public class NewsPage extends AbstractPage {
@@ -26,6 +23,11 @@ public class NewsPage extends AbstractPage {
     }
 
     /** Actions */
+
+    @Override
+    public WebElement getPageLoadedTestElement() {
+        return newsLoc.eFirstNews;
+    }
 
     public boolean areNewsDisplayed() { return isElementPresent(newsLoc.eFirstNews); }
 

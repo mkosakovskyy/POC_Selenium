@@ -41,7 +41,7 @@ public class DiarioAsSteps {
 
     @Then("The Atletico de Madrid team page is correct")
     public void theAtleticoPageIsCorrect() {
-        newsPage.waitForPageLoad();
+        newsPage.waitForAdvertisementLoad();
         Assert.assertEquals("El usuario no se encuentra en la página de noticias del Atletico de Madrid", NewsPage.ATLETICO_URL, pf.getUrl());
     }
 
@@ -59,7 +59,7 @@ public class DiarioAsSteps {
     public void theUserIsRedirectedToTheHomePage() {
         // Redirecciona a Latino US
         homePage.redirectSpain();
-        homePage.waitForPageLoad();
+        homePage.waitForAdvertisementLoad();
         Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, pf.getUrl());
     }
 
@@ -87,7 +87,7 @@ public class DiarioAsSteps {
 
     @Then("The Formula One league page is correct")
     public void theFormulaLeaguePageIsCorrect() {
-        newsPage.waitForPageLoad();
+        newsPage.waitForAdvertisementLoad();
         Assert.assertEquals("El usuario no se encuentra en la página de noticias de la Formula Uno", NewsPage.FORMULA_URL, pf.getUrl());
     }
 

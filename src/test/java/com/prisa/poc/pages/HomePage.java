@@ -23,6 +23,11 @@ public class HomePage extends AbstractPage {
 
     /** Actions */
 
+    @Override
+    public WebElement getPageLoadedTestElement() {
+        return homeLoc.titleFirstNews;
+    }
+
     public String clickFirstNews() {
         String newsUrl = homeLoc.titleFirstNews.getAttribute("href");
         homeLoc.titleFirstNews.click();
