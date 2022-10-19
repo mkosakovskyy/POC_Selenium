@@ -64,7 +64,7 @@ public class Hooks {
 
     /** Embed a screenshot in test report if test is marked as failed */
     @After
-    public void tearDown() {
+    public void tearDown(Scenario scenario) {
         try {
             final byte[] screenByte = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenByte, "image/png", scenario.getName());
