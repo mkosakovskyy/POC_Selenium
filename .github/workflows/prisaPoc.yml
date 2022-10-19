@@ -97,7 +97,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: allure-results
-
+          
+      - name: Check folder
+        run: |
+          sudo apt install tree
+          tree
+            
       - name: Get AllureReports history
         uses: actions/checkout@v3
         if: always()
