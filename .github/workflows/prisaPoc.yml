@@ -80,6 +80,23 @@ jobs:
           #with:
           #branch: gh-pages
           #folder: ./reports/spark
+          
+      - name: Generate artifact for Allure Reports
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: allure_reports
+          path: ./allure-results
+          
+  allure:
+    needs: selenium
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        id: download2
+        uses: actions/download-artifact@v3
+        with:
+          name: allure_reports
 
       - name: Get AllureReports history
         uses: actions/checkout@v3
