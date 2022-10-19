@@ -1,17 +1,11 @@
 name: selenium - poc de prisa
-run-name: selenium - ${{ inputs.os }} - ${{ inputs.browser }}
+# run-name: selenium - ${{ inputs.os }} - ${{ inputs.browser }}
+run-name: selenium - macos-latest - ${{ inputs.browser }}
 
 on:
   workflow_dispatch:
     inputs:
       os:
-        type: choice
-        description: Elije el sistema operativo
-        required: true
-        options:
-          - ubuntu-latest
-          - macos-latest
-
       browser:
         type: choice
         description: Elije el navegador
@@ -57,11 +51,11 @@ jobs:
           name: report_allure
           path: ./allure-results
           
-        #- name: Deploy report index to GitHub Page
-        #uses: JamesIves/github-pages-deploy-action@4.1.5
-        #with:
-        #branch: gh-pages
-        #folder: ./reports/spark
+        # - name: Deploy report index to GitHub Page
+        # uses: JamesIves/github-pages-deploy-action@4.1.5
+        # with:
+        # branch: gh-pages
+        # folder: ./reports/spark
           
   allure:
     needs: selenium
