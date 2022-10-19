@@ -43,13 +43,13 @@ public class DiarioAsSteps {
     @Then("The Atletico de Madrid team page is correct")
     public void theAtleticoPageIsCorrect() {
         newsPage.waitForAdvertisementLoad();
+        ScrollUtilities.scrollDown(pf.getDriver(), 350);
         Assert.assertEquals("El usuario no se encuentra en la página de noticias del Atletico de Madrid", NewsPage.ATLETICO_URL, pf.getUrl());
     }
 
     @And("The Atletico de Madrid news are displayed")
     public void theAtleticoNewsAreDisplayed() {
         Assert.assertTrue("No se han encontrado las noticias del Atletico de Madrid", newsPage.areNewsDisplayed());
-        ScrollUtilities.scrollDown(pf.getDriver(), 600);
     }
 
     @And("The user clicks on the banner AS logo")
@@ -62,8 +62,8 @@ public class DiarioAsSteps {
         // Redirecciona a Latino US
         homePage.redirectSpain();
         homePage.waitForAdvertisementLoad();
+        ScrollUtilities.scrollDown(pf.getDriver(), 350);
         Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, pf.getUrl());
-        ScrollUtilities.scrollDown(pf.getDriver(), 600);
     }
 
     @When("The user clicks on the title of the first news")
@@ -91,12 +91,12 @@ public class DiarioAsSteps {
     @Then("The Formula One league page is correct")
     public void theFormulaLeaguePageIsCorrect() {
         newsPage.waitForAdvertisementLoad();
+        ScrollUtilities.scrollDown(pf.getDriver(), 350);
         Assert.assertEquals("El usuario no se encuentra en la página de noticias de la Formula Uno", NewsPage.FORMULA_URL, pf.getUrl());
     }
 
     @And("The Formula One league advertisement elements are displayed")
     public void theFormulaLeagueAdvertisementAreDisplayed(DataTable table) {
         Assert.assertTrue("No se han encontrado los anuncios indicados de Formula Uno", newsPage.areAdvertisementDisplayed(table));
-        ScrollUtilities.scrollDown(pf.getDriver(), 600);
     }
 }
