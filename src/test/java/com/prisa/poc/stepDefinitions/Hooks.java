@@ -49,12 +49,16 @@ public class Hooks {
                 System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionsChrome = new ChromeOptions();
-                optionsChrome.addArguments("--window-size=1920,1080");
+                optionsChrome.addArguments("--no-sandbox");
+                optionsChrome.addArguments("--disable-gpu");
+                optionsChrome.addArguments("--disable-dev-shm-usage");
+                // optionsChrome.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
-        driver.manage().window().setSize(new Dimension(1920,1200));
+        driver.manage().window().maximize();
+        // driver.manage().window().setSize(new Dimension(1920,1200));
         PagesFactory.start(driver);
     }
 
