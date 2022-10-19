@@ -54,6 +54,9 @@ public class Hooks {
                 optionsChrome.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
                 optionsChrome.addArguments("--no-sandbox"); // Bypass OS security model
                 optionsChrome.setExperimentalOption("useAutomationExtension", false);
+                optionsChrome.addArguments("--crash-dumps-dir=/tmp");
+                // optionsChrome.addArguments('--user-data-dir=~/.config/google-chrome');
+
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
