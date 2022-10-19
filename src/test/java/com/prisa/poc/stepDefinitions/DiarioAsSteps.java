@@ -68,7 +68,7 @@ public class DiarioAsSteps {
 
     @Then("The user is on the selected news page")
     public void theUserIsOnTheSelectedNewsPage() {
-        // Assert.assertEquals("El usuario no se encuentra en la página de la primera noticia", firstNewsURL, pf.getUrl());
+        Assert.assertEquals("El usuario no se encuentra en la página de la primera noticia", firstNewsURL, pf.getUrl());
     }
 
     @When("The user clicks the Facebook icon")
