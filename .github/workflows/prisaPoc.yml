@@ -32,9 +32,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Check Chrome
-        run: google-chrome --version
-
       - name: Run Selenium with Maven
         run: mvn clean test -Dbrowser=${{ github.event.inputs.browser }}
 
