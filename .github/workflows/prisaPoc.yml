@@ -1,5 +1,5 @@
 name: Selenium - POC de Prisa
-run-name: Selenium - POC de Prisa - ${{ inputs.browser }}
+run-name: Selenium - ${{ inputs.os }} - ${{ inputs.browser }}
 
 on:
   workflow_dispatch:
