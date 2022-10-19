@@ -2,7 +2,7 @@
 
 ## ESTADO
 
-[![Selenium - POC de Prisa](https://github.com/hiberus-prisa-qa-devops/POC_Selenium/actions/workflows/prisaPoc.yml/badge.svg)](https://github.com/hiberus-prisa-qa-devops/POC_Selenium/actions/workflows/prisaPoc.yml)
+[![selenium - poc de prisa](https://github.com/hiberus-prisa-qa-devops/POC_Selenium/actions/workflows/selenium.yml/badge.svg)](https://github.com/hiberus-prisa-qa-devops/POC_Selenium/actions/workflows/selenium.yml)
 
 ## REPORTE
 
