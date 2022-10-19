@@ -1,5 +1,6 @@
 package com.prisa.poc.stepDefinitions;
 
+import com.prisa.poc.utils.ScrollUtilities;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -48,6 +49,7 @@ public class DiarioAsSteps {
     @And("The Atletico de Madrid news are displayed")
     public void theAtleticoNewsAreDisplayed() {
         Assert.assertTrue("No se han encontrado las noticias del Atletico de Madrid", newsPage.areNewsDisplayed());
+        ScrollUtilities.scrollDown(pf.getDriver(), 600);
     }
 
     @And("The user clicks on the banner AS logo")
@@ -61,6 +63,7 @@ public class DiarioAsSteps {
         homePage.redirectSpain();
         homePage.waitForAdvertisementLoad();
         Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, pf.getUrl());
+        ScrollUtilities.scrollDown(pf.getDriver(), 600);
     }
 
     @When("The user clicks on the title of the first news")
@@ -94,5 +97,6 @@ public class DiarioAsSteps {
     @And("The Formula One league advertisement elements are displayed")
     public void theFormulaLeagueAdvertisementAreDisplayed(DataTable table) {
         Assert.assertTrue("No se han encontrado los anuncios indicados de Formula Uno", newsPage.areAdvertisementDisplayed(table));
+        ScrollUtilities.scrollDown(pf.getDriver(), 600);
     }
 }

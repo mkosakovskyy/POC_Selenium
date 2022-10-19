@@ -25,9 +25,7 @@ public class NewsPage extends AbstractPage {
     /** Actions */
 
     @Override
-    public WebElement getPageLoadedTestElement() {
-        return newsLoc.eFirstNews;
-    }
+    public WebElement getPageLoadedTestElement() { return null; }
 
     public boolean areNewsDisplayed() { return isElementPresent(newsLoc.eFirstNews); }
 
