@@ -6,8 +6,8 @@ public class Flags {
 
     private static final String BROWSER = "browser";
     private static final String HEADLESS = "headless";
-    private final String browser = System.getProperty("browser");
-    private final boolean isHeadless = this.parseBoolean(System.getProperty("headless"));
+    private final String browser = System.getProperty(BROWSER);
+    private final boolean isHeadless = this.parseBoolean(System.getProperty(HEADLESS));
     private static Flags instance;
 
 

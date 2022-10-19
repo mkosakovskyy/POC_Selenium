@@ -3,7 +3,6 @@ package com.prisa.poc.stepDefinitions;
 import com.prisa.poc.pages.PagesFactory;
 import com.prisa.poc.utils.Flags;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
