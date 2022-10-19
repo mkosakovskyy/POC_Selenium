@@ -85,10 +85,18 @@ jobs:
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: allure_reports
+          name: allure-results
           path: ./allure-results
           
-  
+  allure:
+    needs: selenium
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-results
 
       - name: Get AllureReports history
         uses: actions/checkout@v3
