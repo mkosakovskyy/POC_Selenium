@@ -32,14 +32,14 @@ public class HeaderPage extends AbstractPage {
     public void clickMenuAtletico() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(headerLoc.dropdownFutbol).build().perform();
-        new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(headerLoc.optionAtletico));
+        new WebDriverWait(getDriver(), Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOf(headerLoc.optionAtletico));
         actions.moveToElement(headerLoc.optionAtletico).click().build().perform();
     }
 
     public void clickMenuFormulaOne() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(headerLoc.dropdownMotor).build().perform();
-        new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(headerLoc.optionFormulaOne));
+        new WebDriverWait(getDriver(), Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOf(headerLoc.optionFormulaOne));
         actions.moveToElement(headerLoc.optionFormulaOne).click().build().perform();
     }
 
