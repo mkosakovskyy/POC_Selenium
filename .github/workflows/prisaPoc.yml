@@ -75,18 +75,18 @@ jobs:
           name: cucumber_html_report
           path: ./cucumber-reporting/cucumber-html-reports
 
-          #- name: Deploy report index to GitHub Page
-          #uses: JamesIves/github-pages-deploy-action@4.1.5
-          #with:
-          #branch: gh-pages
-          #folder: ./reports/spark
-          
       - name: Generate artifact for Allure Reports
         uses: actions/upload-artifact@v3
         if: always()
         with:
           name: allure_report
           path: ./allure-results
+          
+        #- name: Deploy report index to GitHub Page
+        #uses: JamesIves/github-pages-deploy-action@4.1.5
+        #with:
+        #branch: gh-pages
+        #folder: ./reports/spark
           
   allure:
     needs: selenium
