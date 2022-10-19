@@ -85,7 +85,7 @@ jobs:
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: allure-results
+          name: allure_report
           path: ./allure-results
           
   allure:
@@ -96,7 +96,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
-          name: allure-results
+          name: allure_report
           path: ./allure-results
             
       - name: Get AllureReports history
