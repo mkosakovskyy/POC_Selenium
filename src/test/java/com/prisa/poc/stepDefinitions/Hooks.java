@@ -47,13 +47,12 @@ public class Hooks {
                 System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionsChrome = new ChromeOptions();
-                // optionsChrome.addArguments("--headless");
-                optionsChrome.addArguments("--no-sandbox");
-                optionsChrome.addArguments("--disable-gpu"); //
-                optionsChrome.addArguments("--disable-dev-shm-usage");
-                optionsChrome.addArguments("--disable-web-security"); //
-                optionsChrome.addArguments("--enable-javascript"); //
-                optionsChrome.addArguments("--remote-debugging-port=9222"); //
+                optionsChrome.addArguments("start-maximized"); // open Browser in maximized mode
+                optionsChrome.addArguments("disable-infobars"); // disabling infobars
+                optionsChrome.addArguments("--disable-extensions"); // disabling extensions
+                optionsChrome.addArguments("--disable-gpu"); // applicable to windows os only
+                optionsChrome.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+                optionsChrome.addArguments("--no-sandbox"); // Bypass OS security model
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
