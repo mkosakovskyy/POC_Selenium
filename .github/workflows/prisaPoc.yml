@@ -38,9 +38,7 @@ jobs:
         run: |
           pkill chrome
           pkill --oldest chrome
-          pgrep chrome | xargs kill -9
-          killall google-chrome-stable
-          pkill chromedriver
+
           
 
       - name: Run Selenium with Maven
