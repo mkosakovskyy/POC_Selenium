@@ -53,6 +53,7 @@ public class Hooks {
                 optionsChrome.addArguments("--disable-gpu"); // applicable to windows os only
                 optionsChrome.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
                 optionsChrome.addArguments("--no-sandbox"); // Bypass OS security model
+                optionsChrome.setExperimentalOption("useAutomationExtension", false);
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);

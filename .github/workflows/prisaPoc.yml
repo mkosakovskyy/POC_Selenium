@@ -33,6 +33,16 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+
+      - name: aaaaaaaaaaaaaaaaaa
+        run: |
+          pkill chrome
+          pkill --oldest chrome
+          pgrep chrome | xargs kill -9
+          killall google-chrome-stable
+          pkill chromedriver
+          
+
       - name: Run Selenium with Maven
         run: mvn clean test -Dbrowser=${{ github.event.inputs.browser }}
 
