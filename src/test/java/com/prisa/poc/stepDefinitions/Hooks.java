@@ -48,7 +48,7 @@ public class Hooks {
                 System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionsChrome = new ChromeOptions();
-                // optionsChrome.addArguments("--headless");
+                optionsChrome.addArguments("--headless");
                 optionsChrome.addArguments("--no-sandbox");
                 optionsChrome.addArguments("--disable-dev-shm-usage");
                 optionsChrome.addArguments("--disable-web-security");
