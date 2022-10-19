@@ -32,14 +32,12 @@ public class HeaderPage extends AbstractPage {
     public void clickMenuAtletico() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(headerLoc.dropdownFutbol).build().perform();
-        try { Thread.sleep(1000); } catch (InterruptedException e) {}
         actions.moveToElement(headerLoc.optionAtletico).click().build().perform();
     }
 
     public void clickMenuFormulaOne() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(headerLoc.dropdownMotor).build().perform();
-        try { Thread.sleep(1000); } catch (InterruptedException e) {}
         actions.moveToElement(headerLoc.optionFormulaOne).click().build().perform();
     }
 

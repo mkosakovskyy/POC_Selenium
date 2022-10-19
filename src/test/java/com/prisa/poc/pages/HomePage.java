@@ -28,12 +28,6 @@ public class HomePage extends AbstractPage {
         return homeLoc.titleFirstNews;
     }
 
-    public String clickFirstNews() {
-        String newsUrl = homeLoc.titleFirstNews.getAttribute("href");
-        homeLoc.titleFirstNews.click();
-        return newsUrl;
-    }
-
     public void clickAcceptCookies() {
         try {
             new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(homeLoc.btnAcceptCookies));
@@ -41,6 +35,13 @@ public class HomePage extends AbstractPage {
                 homeLoc.btnAcceptCookies.click();
             }
         } catch (NoSuchElementException | NoSuchFrameException e) {}
+    }
+
+    public String clickFirstNews() {
+        moveTo(homeLoc.titleFirstNews);
+        String newsUrl = homeLoc.titleFirstNews.getAttribute("href");
+        homeLoc.titleFirstNews.click();
+        return newsUrl;
     }
 
     public void redirectSpain() {
