@@ -49,10 +49,11 @@ public class Hooks {
                 ChromeOptions optionsChrome = new ChromeOptions();
                 // optionsChrome.addArguments("--headless");
                 optionsChrome.addArguments("--no-sandbox");
+                optionsChrome.addArguments("--disable-gpu"); //
                 optionsChrome.addArguments("--disable-dev-shm-usage");
-                optionsChrome.addArguments("--disable-web-security");
-                optionsChrome.addArguments("--enable-javascript");
-                optionsChrome.addArguments("--remote-debugging-port=9222");
+                optionsChrome.addArguments("--disable-web-security"); //
+                optionsChrome.addArguments("--enable-javascript"); //
+                optionsChrome.addArguments("--remote-debugging-port=9222"); //
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
