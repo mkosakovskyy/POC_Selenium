@@ -3,11 +3,8 @@ package com.prisa.poc.pages;
 import com.prisa.poc.locators.NewsLocators;
 import io.cucumber.datatable.DataTable;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
@@ -38,7 +35,7 @@ public class NewsPage extends AbstractPage {
         try {
             WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
             new WebDriverWait(getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elem));
-        } catch (NoSuchElementException e) {}
+        } catch (NoSuchElementException | NoSuchFrameException e) {}
         try { Thread.sleep(5000); } catch (InterruptedException e) { throw new RuntimeException(e); }
     }
 
