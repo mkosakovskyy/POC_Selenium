@@ -1,7 +1,7 @@
 package com.prisa.poc.pages;
 
 import com.prisa.poc.locators.HomeLocators;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,10 +30,13 @@ public class HomePage extends AbstractPage {
     }
 
     public void clickAcceptCookies() {
-        new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(homeLoc.logoAS));
-        if (isElementPresent(homeLoc.btnAcceptCookies)) {
-            homeLoc.btnAcceptCookies.click();
-        }
+        try {
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(homeLoc.btnAcceptCookies));
+            try { Thread.sleep(1000); } catch (InterruptedException e) { throw new RuntimeException(e); }
+            if (isElementPresent(homeLoc.btnAcceptCookies)) {
+                homeLoc.btnAcceptCookies.click();
+            }
+        } catch (NoSuchElementException | NoSuchFrameException e) {}
     }
 
     public void redirectSpain() {

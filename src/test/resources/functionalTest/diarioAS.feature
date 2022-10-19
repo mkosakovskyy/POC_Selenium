@@ -1,6 +1,4 @@
 @as.com
-@issue=1234
-@tmsLink=4321
 
 Feature: Feature - Diario AS proof of concept for Prisa
 

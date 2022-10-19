@@ -7,9 +7,6 @@ public class HomeLocators {
 
     /** Locators */
 
-    @FindBy(xpath = "//span[@class='ai-as']")
-    public WebElement logoAS;
-
     @FindBy(id = "didomi-notice-agree-button")
     public WebElement btnAcceptCookies;
 

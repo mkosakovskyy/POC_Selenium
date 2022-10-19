@@ -168,6 +168,17 @@
             <artifactId>allure-cucumber7-jvm</artifactId>
             <version>${allure.cucumber7.version}</version>
         </dependency>
+
+
+
+
+
+
+        <dependency>
+            <groupId>com.github.stephenc.monte</groupId>
+            <artifactId>monte-screen-recorder</artifactId>
+            <version>0.7.7.0</version>
+        </dependency>
     </dependencies>
 
     <!-- ================================= -->

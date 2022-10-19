@@ -96,15 +96,15 @@ public abstract class AbstractPage {
     public static void dragAndDropElement(WebDriver driver, By locator, int xOffset, int yOffset){
         WebElement slider = driver.findElement(locator);
         Actions move = new Actions(driver);
-        Action action = (Action) move.dragAndDropBy(slider, xOffset, yOffset).build();
+        Action action = move.dragAndDropBy(slider, xOffset, yOffset).build();
         action.perform();
     }
 
     public void waitForPageLoad() {
         try {
             WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(elem));
         } catch (NoSuchElementException | NoSuchFrameException e) {}
-        try { Thread.sleep(80000); } catch (InterruptedException e) { throw new RuntimeException(e); }
+        // try { Thread.sleep(3000); } catch (InterruptedException e) { throw new RuntimeException(e); }
     }
 }

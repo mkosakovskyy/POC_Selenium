@@ -2,6 +2,7 @@ package com.prisa.poc.stepDefinitions;
 
 import com.prisa.poc.pages.PagesFactory;
 import com.prisa.poc.utils.Flags;
+import com.prisa.poc.utils.ScreenRecorderUtil;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -27,6 +28,7 @@ public class Hooks {
     @Before
     @SuppressWarnings("deprecation")
     public void setUp() {
+        try { ScreenRecorderUtil.startRecord("main"); } catch (Exception e) {}
         String browser = Flags.getInstance().getBrowser();
         if (StringUtils.isBlank(browser)) browser = "chrome";
         switch (browser) {
@@ -52,13 +54,15 @@ public class Hooks {
                 optionsChrome.addArguments("--no-sandbox");
                 optionsChrome.addArguments("--disable-gpu");
                 optionsChrome.addArguments("--disable-dev-shm-usage");
+                optionsChrome.addArguments("--disable-web-security");
+                optionsChrome.addArguments("--enable-javascript");
+                optionsChrome.addArguments("--remote-debugging-port=9222");
                 optionsChrome.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
-        Dimension d = new Dimension(1920, 1200);
-        driver.manage().window().setSize(d);
+        driver.manage().window().setSize(new Dimension(1920,1200));
         PagesFactory.start(driver);
     }
 
@@ -76,6 +80,7 @@ public class Hooks {
     @After
     public void tearDown(Scenario scenario) {
         driver.quit();
+        try { ScreenRecorderUtil.stopRecord(); } catch (Exception e) {}
     }
 
     /** @AfterStep

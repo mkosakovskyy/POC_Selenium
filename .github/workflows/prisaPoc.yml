@@ -50,6 +50,13 @@ jobs:
         with:
           name: report_allure
           path: ./allure-results
+
+      - name: Generate artifact for video recording
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: report_video
+          path: ./test-recordings
           
         # - name: Deploy report index to GitHub Page
         # uses: JamesIves/github-pages-deploy-action@4.1.5
