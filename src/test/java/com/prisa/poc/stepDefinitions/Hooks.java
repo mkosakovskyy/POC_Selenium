@@ -4,7 +4,6 @@ import com.prisa.poc.pages.PagesFactory;
 import com.prisa.poc.utils.Flags;
 import com.prisa.poc.utils.ScreenRecorderUtil;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -66,19 +65,15 @@ public class Hooks {
         PagesFactory.start(driver);
     }
 
-    @AfterStep
-    public void capturaaas(Scenario scenario) {
+    /** Embed a screenshot in test report if test is marked as failed */
+    @After
+    public void tearDown(Scenario scenario) {
         try {
             final byte[] screenByte = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenByte, "image/png", scenario.getName());
         } catch (WebDriverException somePlatformsDontSupportScreenshots) {
             System.err.println(somePlatformsDontSupportScreenshots.getMessage());
         }
-    }
-
-    /** Embed a screenshot in test report if test is marked as failed */
-    @After
-    public void tearDown(Scenario scenario) {
         driver.quit();
         try { ScreenRecorderUtil.stopRecord(); } catch (Exception e) {}
     }
