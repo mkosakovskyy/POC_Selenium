@@ -35,9 +35,8 @@ jobs:
 
 
       - name: aaaaaaaaaaaaaaaaaa
-        run: |
-          pkill chrome
-          pkill --oldest chrome
+        run: pkill chrome
+
 
           
 
