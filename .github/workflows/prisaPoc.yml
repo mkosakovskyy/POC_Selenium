@@ -35,9 +35,7 @@ jobs:
 
 
       - name: aaaaaaaaaaaaaaaaaa
-        run: pkill chrome
-
-
+        run: pkill --oldest chrome
           
 
       - name: Run Selenium with Maven
