@@ -90,6 +90,7 @@ jobs:
           
   allure:
     needs: selenium
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Download Artifact
