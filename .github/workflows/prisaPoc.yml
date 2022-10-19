@@ -97,6 +97,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: allure-results
+          path: ./allure-results
           
       - name: Check folder
         run: |
