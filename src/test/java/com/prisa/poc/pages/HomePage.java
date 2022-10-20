@@ -46,6 +46,7 @@ public class HomePage extends AbstractPage {
     }
 
     public void redirectSpain() {
+        waitUtil.sleepDriver(1000);
         String currentUrl = getDriver().getCurrentUrl();
         if (currentUrl.equals(PAGE_US_URL)) generalUtil.navigateTo(PAGE_URL);
     }
