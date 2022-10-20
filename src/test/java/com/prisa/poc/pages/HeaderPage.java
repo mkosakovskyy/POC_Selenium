@@ -30,7 +30,7 @@ public class HeaderPage extends AbstractPage {
 
     public void clickMenuAtletico() {
         moveUtil.moveTo(headerLoc.dropdownFutbol);
-        waitUtil.sleepDriver(1000);
+        waitUtil.sleepDriver(60000);
         moveUtil.moveToAndClick(headerLoc.optionAtletico);
     }
 
