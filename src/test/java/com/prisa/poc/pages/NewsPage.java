@@ -29,6 +29,8 @@ public class NewsPage extends AbstractPage {
 
     /** Methods */
 
+    public void waitForPageLoad() { waitUtil.waitForElementVisible(newsLoc.titleFirstNews); }
+
     public boolean areNewsDisplayed() { return waitUtil.isElementPresent(newsLoc.eFirstNews); }
 
     public void clickFacebook() { newsLoc.btnFacebook.click(); }

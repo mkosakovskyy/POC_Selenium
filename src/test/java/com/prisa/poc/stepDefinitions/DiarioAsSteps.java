@@ -56,6 +56,7 @@ public class DiarioAsSteps {
 
     @And("The user clicks on the banner AS logo")
     public void theUserClicksOnTheBannerASLogo() {
+        newsPage.waitForPageLoad();
         headerPage.clickHeaderLogo();
     }
 
@@ -73,6 +74,7 @@ public class DiarioAsSteps {
 
     @Then("The user is on the selected news page")
     public void theUserIsOnTheSelectedNewsPage() {
+        newsPage.waitForPageLoad();
         Assert.assertEquals("El usuario no se encuentra en la página de la primera noticia", firstNewsURL, generalUtil.getUrl());
     }
 
