@@ -46,7 +46,7 @@ Para poder comprobar los artefactos generados durante el workflow hay que accede
 
 ## Casos de prueba / escenarios
 
-El proyecto consiste de cuatro casos de prueba decididos por el QA Lead y el POC.
+El proyecto consiste de cuatro casos de prueba decididos por el QA Lead y el PO.
 
 - Access to motor league news
   - AC: The Atletico de Madrid news are displayed
