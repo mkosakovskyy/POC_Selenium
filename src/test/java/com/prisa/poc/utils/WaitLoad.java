@@ -34,9 +34,8 @@ public class WaitLoad extends AbstractPage {
      */
     public void waitForElementVisible(WebElement elem) {
         try {
-            new WebDriverWait(getDriver(), Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(elem));
         } catch (Exception e) {}
-        try { Thread.sleep(1000); } catch (InterruptedException e) {}
     }
 
     /**
@@ -57,9 +56,8 @@ public class WaitLoad extends AbstractPage {
     public void waitForAdvertisementVisible() {
         try {
             WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(17)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(elem));
         } catch (Exception e) {}
-        try { Thread.sleep(3000); } catch (InterruptedException e) {}
     }
 
     /**
