@@ -56,7 +56,7 @@ public class WaitLoad extends AbstractPage {
     public void waitForAdvertisementVisible() {
         try {
             WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(elem));
         } catch (Exception e) {}
     }
 
