@@ -29,7 +29,7 @@ public class NewsPage extends AbstractPage {
 
     /** Methods */
 
-    public void waitForPageLoad() { waitUtil.waitForElementVisible(newsLoc.titleFirstNews); }
+    public void waitForPageLoad() { try { waitUtil.waitForElementVisible(newsLoc.titleFirstNews); } catch (Exception e) {} }
 
     public boolean areNewsDisplayed() { return waitUtil.isElementPresent(newsLoc.eFirstNews); }
 

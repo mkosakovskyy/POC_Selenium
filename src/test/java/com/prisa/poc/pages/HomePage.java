@@ -6,6 +6,10 @@ import com.prisa.poc.utils.ScrollMove;
 import com.prisa.poc.utils.WaitLoad;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage extends AbstractPage {
 
@@ -29,14 +33,14 @@ public class HomePage extends AbstractPage {
 
     /** Methods */
 
-    public void waitForPageLoad() { waitUtil.waitForElementVisible(homeLoc.titleFirstNews); }
+    public void waitForPageLoad() { try { waitUtil.waitForElementVisible(homeLoc.titleFirstNews); } catch (Exception e) {} }
 
     public void clickAcceptCookies() {
         try {
             waitUtil.waitUntilVisible(homeLoc.btnAcceptCookies,1000);
             waitUtil.sleepDriver(1000);
             if (waitUtil.isElementPresent(homeLoc.btnAcceptCookies)) homeLoc.btnAcceptCookies.click();
-        } catch (NoSuchElementException | NoSuchFrameException e) {}
+        } catch (Exception e) {}
     }
 
     public String clickFirstNews() {
