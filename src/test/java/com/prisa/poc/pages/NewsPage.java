@@ -1,6 +1,7 @@
 package com.prisa.poc.pages;
 
 import com.prisa.poc.locators.NewsLocators;
+import com.prisa.poc.utils.WaitLoad;
 import io.cucumber.datatable.DataTable;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
@@ -9,10 +10,14 @@ import org.openqa.selenium.support.PageFactory;
 @Slf4j
 public class NewsPage extends AbstractPage {
 
+    /** Variables */
+
     public static final String ATLETICO_URL = "https://as.com/noticias/atletico-madrid/?omnil=mpal";
     public static final String FORMULA_URL = "https://as.com/motor/formula_1/?omnil=mpal";
     public static final String FACEBOOK_URL = "https://www.facebook.com/";
+
     NewsLocators newsLoc;
+    WaitLoad waitUtil = new WaitLoad(getDriver());
 
     /** Constructor */
 
@@ -22,12 +27,9 @@ public class NewsPage extends AbstractPage {
         PageFactory.initElements(driver, newsLoc);
     }
 
-    /** Actions */
+    /** Methods */
 
-    @Override
-    public WebElement getPageLoadedTestElement() { return null; }
-
-    public boolean areNewsDisplayed() { return isElementPresent(newsLoc.eFirstNews); }
+    public boolean areNewsDisplayed() { return waitUtil.isElementPresent(newsLoc.eFirstNews); }
 
     public void clickFacebook() { newsLoc.btnFacebook.click(); }
 

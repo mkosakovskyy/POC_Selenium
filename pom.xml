@@ -169,10 +169,7 @@
             <version>${allure.cucumber7.version}</version>
         </dependency>
 
-
-
-
-
+        <!-- ============ MONTE SCREEN RECORDER ============ -->
 
         <dependency>
             <groupId>com.github.stephenc.monte</groupId>

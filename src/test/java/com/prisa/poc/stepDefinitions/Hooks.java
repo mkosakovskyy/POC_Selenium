@@ -2,7 +2,8 @@ package com.prisa.poc.stepDefinitions;
 
 import com.prisa.poc.pages.PagesFactory;
 import com.prisa.poc.utils.Flags;
-import com.prisa.poc.utils.ScreenRecorderUtil;
+import com.prisa.poc.utils.ScreenRecorder;
+import com.prisa.poc.utils.TakeScreenshot;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -22,19 +23,19 @@ public class Hooks {
 
     private static WebDriver driver;
     public static final int TIMEOUT = 10;
+    TakeScreenshot screenUtil = new TakeScreenshot();
 
     /** Delete all cookies at the start of each scenario to avoid shared state between tests */
     @Before
     @SuppressWarnings("deprecation")
     public void setUp() {
-        try { ScreenRecorderUtil.startRecord("main"); } catch (Exception e) {}
+        try { ScreenRecorder.startRecord("main"); } catch (Exception e) {}
         String browser = Flags.getInstance().getBrowser();
         if (StringUtils.isBlank(browser)) browser = "chrome";
         switch (browser) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions optionsFirefox = new FirefoxOptions();
-                optionsFirefox.addArguments("--headless");
                 driver = new FirefoxDriver(optionsFirefox);
                 break;
             case "edge":
@@ -52,27 +53,20 @@ public class Hooks {
                 optionsChrome.addArguments("--no-sandbox");
                 optionsChrome.addArguments("--disable-gpu");
                 optionsChrome.addArguments("--disable-dev-shm-usage");
-                // optionsChrome.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        // driver.manage().window().setSize(new Dimension(1920,1200));
         PagesFactory.start(driver);
     }
 
     /** Embed a screenshot in test report if test is marked as failed */
     @After
     public void tearDown(Scenario scenario) {
-        try {
-            final byte[] screenByte = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenByte, "image/png", scenario.getName());
-        } catch (WebDriverException somePlatformsDontSupportScreenshots) {
-            System.err.println(somePlatformsDontSupportScreenshots.getMessage());
-        }
+        screenUtil.takeScreen(scenario, driver);
         driver.quit();
-        try { ScreenRecorderUtil.stopRecord(); } catch (Exception e) {}
+        try { ScreenRecorder.stopRecord(); } catch (Exception e) {}
     }
 
     /** @AfterStep

@@ -1,18 +1,18 @@
 package com.prisa.poc.pages;
 
 import com.prisa.poc.locators.HeaderLocators;
+import com.prisa.poc.utils.ScrollMove;
+import com.prisa.poc.utils.WaitLoad;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HeaderPage extends AbstractPage {
 
+    /** Variables */
+
     HeaderLocators headerLoc;
+    ScrollMove moveUtil = new ScrollMove(getDriver());
+    WaitLoad waitUtil = new WaitLoad(getDriver());
 
     /** Constructor */
 
@@ -22,26 +22,21 @@ public class HeaderPage extends AbstractPage {
         PageFactory.initElements(driver, headerLoc);
     }
 
-    /** Actions */
-
-    @Override
-    public WebElement getPageLoadedTestElement() {
-        return null;
-    }
-
-    public void clickMenuAtletico() {
-        Actions actions = new Actions(getDriver());
-        actions.moveToElement(headerLoc.dropdownFutbol).build().perform();
-        actions.moveToElement(headerLoc.optionAtletico).click().build().perform();
-    }
-
-    public void clickMenuFormulaOne() {
-        Actions actions = new Actions(getDriver());
-        actions.moveToElement(headerLoc.dropdownMotor).build().perform();
-        actions.moveToElement(headerLoc.optionFormulaOne).click().build().perform();
-    }
+    /** Methods */
 
     public void clickHeaderLogo() {
         headerLoc.logoAS.click();
+    }
+
+    public void clickMenuAtletico() {
+        moveUtil.moveTo(headerLoc.dropdownFutbol);
+        waitUtil.sleepDriver(1000);
+        moveUtil.moveToAndClick(headerLoc.optionAtletico);
+    }
+
+    public void clickMenuFormulaOne() {
+        moveUtil.moveTo(headerLoc.dropdownMotor);
+        waitUtil.sleepDriver(1000);
+        moveUtil.moveToAndClick(headerLoc.optionFormulaOne);
     }
 }

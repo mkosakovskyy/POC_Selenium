@@ -21,7 +21,7 @@ public class PagesFactory {
         headerPage = new HeaderPage(driver);
     }
 
-    /** Actions */
+    /** Methods */
 
     public static void start(WebDriver driver) {
         pagesFactories = new PagesFactory(driver);
@@ -31,13 +31,11 @@ public class PagesFactory {
         return pagesFactories;
     }
 
+    public WebDriver getDriver() { return driver; }
+
     public HomePage getHomePage() { return homePage; }
 
     public NewsPage getNewsPage() { return newsPage; }
 
     public HeaderPage getHeaderPage() { return headerPage; }
-
-    public WebDriver getDriver() { return driver; }
-
-    public String getUrl() { return driver.getCurrentUrl(); }
 }
