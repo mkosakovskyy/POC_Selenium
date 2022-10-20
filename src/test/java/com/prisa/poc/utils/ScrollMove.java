@@ -3,6 +3,7 @@ package com.prisa.poc.utils;
 import com.prisa.poc.pages.AbstractPage;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -33,6 +34,16 @@ public class ScrollMove extends AbstractPage {
             actions.moveToElement(elem).build().perform();
         } else {
             ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", elem);
+        }
+    }
+
+    public void scrollSearchClick(WebElement elem) {
+        try{ elem.click();
+        } catch(WebDriverException wde){
+            if(wde.getMessage().contains("is not clickable at point")){
+                scrollDown(50);
+                scrollSearchClick(elem);
+            } else{ wde.printStackTrace(); }
         }
     }
 

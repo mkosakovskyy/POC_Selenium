@@ -21,9 +21,6 @@ target/
 
 # Allure
 .allure
-
-# Cucumber
-cucumber-reporting
 allure-results
 
 # Record
