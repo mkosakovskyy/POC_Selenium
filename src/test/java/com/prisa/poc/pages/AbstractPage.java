@@ -145,7 +145,7 @@ public abstract class AbstractPage {
         try{ elem.click();
         } catch(WebDriverException wde){
             if(wde.getMessage().contains("is not clickable at point")){
-                scrollDown(100);
+                scrollDown(300);
                 scrollSearchClick(elem);
             } else{ wde.printStackTrace(); }
         }
