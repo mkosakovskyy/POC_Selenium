@@ -1,9 +1,6 @@
 package com.prisa.poc.stepDefinitions;
 
 import com.prisa.poc.pages.*;
-import com.prisa.poc.utils.GeneralUtil;
-import com.prisa.poc.utils.ScrollMove;
-import com.prisa.poc.utils.WaitLoad;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -21,9 +18,6 @@ public class DiarioAsSteps {
     HomePage homePage = pf.getHomePage();
     NewsPage newsPage = pf.getNewsPage();
     HeaderPage headerPage = pf.getHeaderPage();
-    ScrollMove moveUtil = new ScrollMove(pf.getDriver());
-    WaitLoad waitUtil = new WaitLoad(pf.getDriver());
-    GeneralUtil generalUtil = new GeneralUtil(pf.getDriver());
     private String firstNewsURL;
 
     /** Steps */

@@ -1,7 +1,6 @@
 package com.prisa.poc.pages;
 
 import com.prisa.poc.locators.NewsLocators;
-import com.prisa.poc.utils.WaitLoad;
 import io.cucumber.datatable.DataTable;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
@@ -15,9 +14,7 @@ public class NewsPage extends AbstractPage {
     public static final String ATLETICO_URL = "https://as.com/noticias/atletico-madrid/?omnil=mpal";
     public static final String FORMULA_URL = "https://as.com/motor/formula_1/?omnil=mpal";
     public static final String FACEBOOK_URL = "https://www.facebook.com/";
-
     NewsLocators newsLoc;
-    WaitLoad waitUtil = new WaitLoad(getDriver());
 
     /** Constructor */
 

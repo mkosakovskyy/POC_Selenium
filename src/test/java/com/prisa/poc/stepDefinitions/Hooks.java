@@ -3,7 +3,6 @@ package com.prisa.poc.stepDefinitions;
 import com.prisa.poc.pages.PagesFactory;
 import com.prisa.poc.utils.Flags;
 import com.prisa.poc.utils.ScreenRecorder;
-import com.prisa.poc.utils.TakeScreenshot;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -64,7 +63,12 @@ public class Hooks {
     /** Embed a screenshot in test report if test is marked as failed */
     @After
     public void tearDown(Scenario scenario) {
-        screenUtil.takeScreen(scenario, driver);
+        try {
+            final byte[] screenByte = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenByte, "image/png", scenario.getName());
+        } catch (WebDriverException somePlatformsDontSupportScreenshots) {
+            System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+        }
         driver.quit();
         try { ScreenRecorder.stopRecord(); } catch (Exception e) {}
     }

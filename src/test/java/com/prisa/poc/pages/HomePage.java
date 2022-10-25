@@ -1,15 +1,8 @@
 package com.prisa.poc.pages;
 
 import com.prisa.poc.locators.HomeLocators;
-import com.prisa.poc.utils.GeneralUtil;
-import com.prisa.poc.utils.ScrollMove;
-import com.prisa.poc.utils.WaitLoad;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage extends AbstractPage {
 
@@ -17,11 +10,7 @@ public class HomePage extends AbstractPage {
 
     public static final String PAGE_URL = "https://as.com/?nrd=1";
     public static final String PAGE_US_URL = "https://us.as.com/";
-
     HomeLocators homeLoc;
-    ScrollMove moveUtil = new ScrollMove(getDriver());
-    WaitLoad waitUtil = new WaitLoad(getDriver());
-    GeneralUtil generalUtil = new GeneralUtil(getDriver());
 
     /** Constructor */
 
