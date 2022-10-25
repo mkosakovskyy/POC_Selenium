@@ -25,3 +25,6 @@ allure-results
 
 # Record
 test-recordings
+
+# Cucumber
+cucumber-reporting

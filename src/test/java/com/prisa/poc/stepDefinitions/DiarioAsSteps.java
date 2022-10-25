@@ -1,9 +1,6 @@
 package com.prisa.poc.stepDefinitions;
 
 import com.prisa.poc.pages.*;
-import com.prisa.poc.utils.GeneralUtil;
-import com.prisa.poc.utils.ScrollMove;
-import com.prisa.poc.utils.WaitLoad;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -21,17 +18,12 @@ public class DiarioAsSteps {
     HomePage homePage = pf.getHomePage();
     NewsPage newsPage = pf.getNewsPage();
     HeaderPage headerPage = pf.getHeaderPage();
-    ScrollMove moveUtil = new ScrollMove(pf.getDriver());
-    WaitLoad waitUtil = new WaitLoad(pf.getDriver());
-    GeneralUtil generalUtil = new GeneralUtil(pf.getDriver());
     private String firstNewsURL;
 
     /** Steps */
 
     @Given("The user is on the as.com home page")
-    public void theUserIsOnTheLoginPage() {
-        generalUtil.navigateTo(HomePage.PAGE_URL);
-    }
+    public void theUserIsOnTheLoginPage() { homePage.navigateTo(HomePage.PAGE_URL); }
 
     @And("The user accepts cookies pop-up")
     public void theUserAcceptsCookies() {
@@ -44,9 +36,9 @@ public class DiarioAsSteps {
 
     @Then("The Atletico de Madrid team page is correct")
     public void theAtleticoPageIsCorrect() {
-        waitUtil.waitForAdvertisementVisible();
-        moveUtil.scrollDown(350);
-        Assert.assertEquals("El usuario no se encuentra en la página de noticias del Atletico de Madrid", NewsPage.ATLETICO_URL, generalUtil.getUrl());
+        newsPage.waitForAdvertisementVisible();
+        newsPage.scrollDown(350);
+        Assert.assertEquals("El usuario no se encuentra en la página de noticias del Atletico de Madrid", NewsPage.ATLETICO_URL, newsPage.getUrl());
     }
 
     @And("The Atletico de Madrid news are displayed")
@@ -64,9 +56,9 @@ public class DiarioAsSteps {
     public void theUserIsRedirectedToTheHomePage() {
         // Redirecciona a Latino US
         homePage.redirectSpain();
-        waitUtil.waitForAdvertisementVisible();
-        moveUtil.scrollDown(350);
-        Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, generalUtil.getUrl());
+        homePage.waitForAdvertisementVisible();
+        homePage.scrollDown(350);
+        Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, homePage.getUrl());
     }
 
     @When("The user clicks on the title of the first news")
@@ -75,7 +67,7 @@ public class DiarioAsSteps {
     @Then("The user is on the selected news page")
     public void theUserIsOnTheSelectedNewsPage() {
         newsPage.waitForPageLoad();
-        Assert.assertEquals("El usuario no se encuentra en la página de la primera noticia", firstNewsURL, generalUtil.getUrl());
+        Assert.assertEquals("El usuario no se encuentra en la página de la primera noticia", firstNewsURL, newsPage.getUrl());
     }
 
     @When("The user clicks the Facebook icon")
@@ -85,8 +77,8 @@ public class DiarioAsSteps {
 
     @Then("The Facebook share window is displayed")
     public void theFacebookShareWindowIsDisplayed() {
-        generalUtil.switchWindow();
-        Assert.assertTrue("El usuario no se encuentra en la ventana de Facebook", generalUtil.getUrl().contains(NewsPage.FACEBOOK_URL));
+        newsPage.switchWindow();
+        Assert.assertTrue("El usuario no se encuentra en la ventana de Facebook", newsPage.getUrl().contains(NewsPage.FACEBOOK_URL));
     }
 
     @When("The user access Formula One within the Motor section")
@@ -94,9 +86,9 @@ public class DiarioAsSteps {
 
     @Then("The Formula One league page is correct")
     public void theFormulaLeaguePageIsCorrect() {
-        waitUtil.waitForAdvertisementVisible();
-        moveUtil.scrollDown(350);
-        Assert.assertEquals("El usuario no se encuentra en la página de noticias de la Formula Uno", NewsPage.FORMULA_URL, generalUtil.getUrl());
+        newsPage.waitForAdvertisementVisible();
+        newsPage.scrollDown(350);
+        Assert.assertEquals("El usuario no se encuentra en la página de noticias de la Formula Uno", NewsPage.FORMULA_URL, newsPage.getUrl());
     }
 
     @And("The Formula One league advertisement elements are displayed")

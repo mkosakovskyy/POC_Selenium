@@ -1,8 +1,6 @@
 package com.prisa.poc.pages;
 
 import com.prisa.poc.locators.HeaderLocators;
-import com.prisa.poc.utils.ScrollMove;
-import com.prisa.poc.utils.WaitLoad;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -11,8 +9,6 @@ public class HeaderPage extends AbstractPage {
     /** Variables */
 
     HeaderLocators headerLoc;
-    ScrollMove moveUtil = new ScrollMove(getDriver());
-    WaitLoad waitUtil = new WaitLoad(getDriver());
 
     /** Constructor */
 
@@ -29,14 +25,14 @@ public class HeaderPage extends AbstractPage {
     }
 
     public void clickMenuAtletico() {
-        moveUtil.moveTo(headerLoc.dropdownFutbol);
-        waitUtil.sleepDriver(1000);
-        moveUtil.moveToAndClick(headerLoc.optionAtletico);
+        moveTo(headerLoc.dropdownFutbol);
+        sleepDriver(1000);
+        moveToAndClick(headerLoc.optionAtletico);
     }
 
     public void clickMenuFormulaOne() {
-        moveUtil.moveTo(headerLoc.dropdownMotor);
-        waitUtil.sleepDriver(1000);
-        moveUtil.moveToAndClick(headerLoc.optionFormulaOne);
+        moveTo(headerLoc.dropdownMotor);
+        sleepDriver(1000);
+        moveToAndClick(headerLoc.optionFormulaOne);
     }
 }

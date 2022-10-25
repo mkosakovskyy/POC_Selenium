@@ -3,7 +3,6 @@ package com.prisa.poc.stepDefinitions;
 import com.prisa.poc.pages.PagesFactory;
 import com.prisa.poc.utils.Flags;
 import com.prisa.poc.utils.ScreenRecorder;
-import com.prisa.poc.utils.TakeScreenshot;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -21,9 +20,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
+    /** Variables */
+    
     private static WebDriver driver;
     public static final int TIMEOUT = 10;
-    TakeScreenshot screenUtil = new TakeScreenshot();
 
     /** Delete all cookies at the start of each scenario to avoid shared state between tests */
     @Before
@@ -64,7 +64,12 @@ public class Hooks {
     /** Embed a screenshot in test report if test is marked as failed */
     @After
     public void tearDown(Scenario scenario) {
-        screenUtil.takeScreen(scenario, driver);
+        try {
+            final byte[] screenByte = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenByte, "image/png", scenario.getName());
+        } catch (WebDriverException somePlatformsDontSupportScreenshots) {
+            System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+        }
         driver.quit();
         try { ScreenRecorder.stopRecord(); } catch (Exception e) {}
     }
