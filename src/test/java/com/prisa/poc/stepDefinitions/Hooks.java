@@ -20,9 +20,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
+    /** Variables */
+    
     private static WebDriver driver;
     public static final int TIMEOUT = 10;
-    TakeScreenshot screenUtil = new TakeScreenshot();
 
     /** Delete all cookies at the start of each scenario to avoid shared state between tests */
     @Before

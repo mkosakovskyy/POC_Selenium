@@ -25,14 +25,14 @@ public class HeaderPage extends AbstractPage {
     }
 
     public void clickMenuAtletico() {
-        moveUtil.moveTo(headerLoc.dropdownFutbol);
-        waitUtil.sleepDriver(1000);
-        moveUtil.moveToAndClick(headerLoc.optionAtletico);
+        moveTo(headerLoc.dropdownFutbol);
+        sleepDriver(1000);
+        moveToAndClick(headerLoc.optionAtletico);
     }
 
     public void clickMenuFormulaOne() {
-        moveUtil.moveTo(headerLoc.dropdownMotor);
-        waitUtil.sleepDriver(1000);
-        moveUtil.moveToAndClick(headerLoc.optionFormulaOne);
+        moveTo(headerLoc.dropdownMotor);
+        sleepDriver(1000);
+        moveToAndClick(headerLoc.optionFormulaOne);
     }
 }

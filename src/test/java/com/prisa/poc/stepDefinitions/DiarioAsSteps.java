@@ -23,9 +23,7 @@ public class DiarioAsSteps {
     /** Steps */
 
     @Given("The user is on the as.com home page")
-    public void theUserIsOnTheLoginPage() {
-        generalUtil.navigateTo(HomePage.PAGE_URL);
-    }
+    public void theUserIsOnTheLoginPage() { homePage.navigateTo(HomePage.PAGE_URL); }
 
     @And("The user accepts cookies pop-up")
     public void theUserAcceptsCookies() {
@@ -38,9 +36,9 @@ public class DiarioAsSteps {
 
     @Then("The Atletico de Madrid team page is correct")
     public void theAtleticoPageIsCorrect() {
-        waitUtil.waitForAdvertisementVisible();
-        moveUtil.scrollDown(350);
-        Assert.assertEquals("El usuario no se encuentra en la página de noticias del Atletico de Madrid", NewsPage.ATLETICO_URL, generalUtil.getUrl());
+        newsPage.waitForAdvertisementVisible();
+        newsPage.scrollDown(350);
+        Assert.assertEquals("El usuario no se encuentra en la página de noticias del Atletico de Madrid", NewsPage.ATLETICO_URL, newsPage.getUrl());
     }
 
     @And("The Atletico de Madrid news are displayed")
@@ -57,10 +55,10 @@ public class DiarioAsSteps {
     @Then("The user is redirected to the home page")
     public void theUserIsRedirectedToTheHomePage() {
         // Redirecciona a Latino US
-        //homePage.redirectSpain();
-        waitUtil.waitForAdvertisementVisible();
-        moveUtil.scrollDown(350);
-        //Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, generalUtil.getUrl());
+        homePage.redirectSpain();
+        homePage.waitForAdvertisementVisible();
+        homePage.scrollDown(350);
+        Assert.assertEquals("El usuario no se encuentra en la página de inicio", HomePage.PAGE_URL, homePage.getUrl());
     }
 
     @When("The user clicks on the title of the first news")
@@ -69,7 +67,7 @@ public class DiarioAsSteps {
     @Then("The user is on the selected news page")
     public void theUserIsOnTheSelectedNewsPage() {
         newsPage.waitForPageLoad();
-        Assert.assertEquals("El usuario no se encuentra en la página de la primera noticia", firstNewsURL, generalUtil.getUrl());
+        Assert.assertEquals("El usuario no se encuentra en la página de la primera noticia", firstNewsURL, newsPage.getUrl());
     }
 
     @When("The user clicks the Facebook icon")
@@ -79,8 +77,8 @@ public class DiarioAsSteps {
 
     @Then("The Facebook share window is displayed")
     public void theFacebookShareWindowIsDisplayed() {
-        generalUtil.switchWindow();
-        Assert.assertTrue("El usuario no se encuentra en la ventana de Facebook", generalUtil.getUrl().contains(NewsPage.FACEBOOK_URL));
+        newsPage.switchWindow();
+        Assert.assertTrue("El usuario no se encuentra en la ventana de Facebook", newsPage.getUrl().contains(NewsPage.FACEBOOK_URL));
     }
 
     @When("The user access Formula One within the Motor section")
@@ -88,9 +86,9 @@ public class DiarioAsSteps {
 
     @Then("The Formula One league page is correct")
     public void theFormulaLeaguePageIsCorrect() {
-        waitUtil.waitForAdvertisementVisible();
-        moveUtil.scrollDown(350);
-        Assert.assertEquals("El usuario no se encuentra en la página de noticias de la Formula Uno", NewsPage.FORMULA_URL, generalUtil.getUrl());
+        newsPage.waitForAdvertisementVisible();
+        newsPage.scrollDown(350);
+        Assert.assertEquals("El usuario no se encuentra en la página de noticias de la Formula Uno", NewsPage.FORMULA_URL, newsPage.getUrl());
     }
 
     @And("The Formula One league advertisement elements are displayed")

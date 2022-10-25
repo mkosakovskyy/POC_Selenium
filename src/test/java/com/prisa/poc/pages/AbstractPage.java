@@ -1,9 +1,6 @@
 package com.prisa.poc.pages;
 
-import com.prisa.poc.utils.MyFluentWait;
-
 import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
@@ -21,11 +18,11 @@ public abstract class AbstractPage {
     /** Variables */
 
     protected Wait<WebDriver> wait;
-    public final WebDriver driver;
+    private final WebDriver driver;
 
     /** Constructor */
 
-    protected AbstractPage(WebDriver driver) {
+    AbstractPage(WebDriver driver) {
         this.driver = driver;
         /** wait = new MyFluentWait<>(driver)
                 .withTimeout(5, ChronoUnit.SECONDS)
@@ -60,8 +57,9 @@ public abstract class AbstractPage {
      */
     public void waitForElementVisible(WebElement elem) {
         try {
-            new WebDriverWait(getDriver(), Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOf(elem));
         } catch (Exception e) {}
+        try { Thread.sleep(1000); } catch (InterruptedException e) {}
     }
 
     /**
@@ -82,8 +80,9 @@ public abstract class AbstractPage {
     public void waitForAdvertisementVisible() {
         try {
             WebElement elem = getDriver().findElement(By.id("pbnetVideo"));
-            new WebDriverWait(getDriver(), Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(elem));
+            new WebDriverWait(getDriver(), Duration.ofSeconds(17)).until(ExpectedConditions.visibilityOf(elem));
         } catch (Exception e) {}
+        try { Thread.sleep(3000); } catch (InterruptedException e) {}
     }
 
     /**
@@ -138,7 +137,7 @@ public abstract class AbstractPage {
             Actions actions = new Actions(getDriver());
             actions.moveToElement(elem).build().perform();
         } else {
-            ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", elem);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elem);
         }
     }
 

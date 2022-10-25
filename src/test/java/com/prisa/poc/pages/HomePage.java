@@ -22,26 +22,26 @@ public class HomePage extends AbstractPage {
 
     /** Methods */
 
-    public void waitForPageLoad() { try { waitUtil.waitForElementVisible(homeLoc.titleFirstNews); } catch (Exception e) {} }
+    public void waitForPageLoad() { try { waitForElementVisible(homeLoc.titleFirstNews); } catch (Exception e) {} }
 
     public void clickAcceptCookies() {
         try {
-            waitUtil.waitUntilVisible(homeLoc.btnAcceptCookies,1000);
-            waitUtil.sleepDriver(1000);
-            if (waitUtil.isElementPresent(homeLoc.btnAcceptCookies)) homeLoc.btnAcceptCookies.click();
+            waitUntilVisible(homeLoc.btnAcceptCookies,1000);
+            sleepDriver(1000);
+            if (isElementPresent(homeLoc.btnAcceptCookies)) homeLoc.btnAcceptCookies.click();
         } catch (Exception e) {}
     }
 
     public String clickFirstNews() {
-        moveUtil.scrollSearchClick(homeLoc.titleFirstNews);
+        scrollSearchClick(homeLoc.titleFirstNews);
         String newsUrl = homeLoc.titleFirstNews.getAttribute("href");
         homeLoc.titleFirstNews.click();
         return newsUrl;
     }
 
     public void redirectSpain() {
-        waitUtil.sleepDriver(1000);
+        sleepDriver(1000);
         String currentUrl = getDriver().getCurrentUrl();
-        if (currentUrl.equals(PAGE_US_URL)) generalUtil.navigateTo(PAGE_URL);
+        if (currentUrl.equals(PAGE_US_URL)) navigateTo(PAGE_URL);
     }
 }
