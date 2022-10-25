@@ -62,9 +62,7 @@ public class DiarioAsSteps {
     }
 
     @When("The user clicks on the title of the first news")
-    public void theUserClicksOnTheTitleOfTheFirstNews() {
-        firstNewsURL = homePage.clickFirstNews();
-    }
+    public void theUserClicksOnTheTitleOfTheFirstNews() { firstNewsURL = homePage.clickFirstNews(); }
 
     @Then("The user is on the selected news page")
     public void theUserIsOnTheSelectedNewsPage() {

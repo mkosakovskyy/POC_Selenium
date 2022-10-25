@@ -33,7 +33,8 @@ public class HomePage extends AbstractPage {
     }
 
     public String clickFirstNews() {
-        scrollSearchClick(homeLoc.titleFirstNews);
+        scrollTo(homeLoc.titleFirstNews);
+        scrollUp(100);
         String newsUrl = homeLoc.titleFirstNews.getAttribute("href");
         homeLoc.titleFirstNews.click();
         return newsUrl;
