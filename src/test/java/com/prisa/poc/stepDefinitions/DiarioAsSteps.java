@@ -78,6 +78,7 @@ public class DiarioAsSteps {
     @Then("The Facebook share window is displayed")
     public void theFacebookShareWindowIsDisplayed() {
         newsPage.switchWindow();
+        try { Thread.sleep(1000); } catch (InterruptedException e) {}
         Assert.assertTrue("El usuario no se encuentra en la ventana de Facebook", newsPage.getUrl().contains(NewsPage.FACEBOOK_URL));
     }
 
