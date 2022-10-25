@@ -53,6 +53,7 @@ public class Hooks {
                 optionsChrome.addArguments("--no-sandbox");
                 optionsChrome.addArguments("--disable-gpu");
                 optionsChrome.addArguments("--disable-dev-shm-usage");
+                optionsChrome.addArguments("--disable-site-isolation-trials");
                 driver = new ChromeDriver(optionsChrome);
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
