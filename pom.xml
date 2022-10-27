@@ -184,6 +184,14 @@
             <artifactId>guava</artifactId>
             <version>31.1-jre</version>
         </dependency>
+             
+        <!-- ============ TESTLINK API ============ -->
+
+        <dependency>
+            <groupId>br.eti.kinoshita</groupId>
+            <artifactId>testlink-java-api</artifactId>
+            <version>1.9.20-1</version>
+        </dependency>             
 
     </dependencies>
 
