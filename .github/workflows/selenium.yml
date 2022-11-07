@@ -20,7 +20,7 @@ on:
 jobs:
   selenium:
     # runs-on: ${{ github.event.inputs.os }}
-    runs-on: ${{ env.OS }}
+    runs-on: $OS
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
