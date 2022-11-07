@@ -3,7 +3,7 @@ env:
   OS: ubuntu-latest
 
 # run-name: selenium - ${{ inputs.os }} - ${{ inputs.browser }}
-run-name: selenium - $OS - ${{ inputs.browser }}
+run-name: selenium - ${env:OS} - ${{ inputs.browser }}
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ on:
 jobs:
   selenium:
     # runs-on: ${{ github.event.inputs.os }}
-    runs-on: $OS
+    runs-on: ${env:OS}
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
