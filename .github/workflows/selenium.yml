@@ -17,7 +17,7 @@ on:
 jobs:
   selenium:
     # runs-on: ${{ github.event.inputs.os }}
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
