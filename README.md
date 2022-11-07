@@ -6,7 +6,7 @@
 
 Enlace para acceder a los reportes que ha generado Allure. Por defecto, se visualiza el reporte de la ultima ejecución lanzada. Para poder comprobar las ejecuciones anteriores pulsar sobre cualquier pico del gráfico que aparece en el lado derecho del reporte. Conf: Guardar los últimos 10 reportes.
 
-https://hiberus-prisa-qa-devops.github.io/POC_Selenium/
+https://hiberus-prisa-qa-devops.github.io/qa-poc-selenium/
 
 ## Descripción
 
