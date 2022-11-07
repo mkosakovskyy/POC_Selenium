@@ -3,7 +3,7 @@ env:
   OS: ubuntu-latest
 
 # run-name: selenium - ${{ inputs.os }} - ${{ inputs.browser }}
-run-name: selenium - ${{ env.OS }} - ${{ inputs.browser }}
+run-name: selenium - $OS - ${{ inputs.browser }}
 
 on:
   workflow_dispatch:
