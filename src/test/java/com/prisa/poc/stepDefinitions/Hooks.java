@@ -18,6 +18,9 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Proxy;
+import org.openqa.selenium.remote.CapabilityType;
+
 public class Hooks {
 
     /** Variables */
@@ -29,25 +32,50 @@ public class Hooks {
     @Before
     @SuppressWarnings("deprecation")
     public void setUp() {
-        try { ScreenRecorder.startRecord("main"); } catch (Exception e) {}
+        /* Proxy for Docker created in .browserInDocker() */
+        Proxy proxy = new Proxy();
+        proxy.setHttpProxy("81.171.24.199:3128");
+        try {
+            ScreenRecorder.startRecord("main");
+        } catch (Exception e) {
+        }
         String browser = Flags.getInstance().getBrowser();
         if (StringUtils.isBlank(browser)) browser = "chrome";
         switch (browser) {
             case "firefox":
+                FirefoxOptions optionsFirefox = new FirefoxOptions();
+                optionsFirefox.setCapability(CapabilityType.PROXY, proxy);
+                driver = WebDriverManager.firefoxdriver().capabilities(optionsFirefox).browserInDocker().create();
+                /* Lines for executing without docker
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions optionsFirefox = new FirefoxOptions();
                 driver = new FirefoxDriver(optionsFirefox);
+                 */
                 break;
             case "edge":
+                EdgeOptions optionsEdge = new EdgeOptions();
+                optionsEdge.setCapability(CapabilityType.PROXY, proxy);
+                driver = WebDriverManager.edgedriver().capabilities(optionsEdge).browserInDocker().create();
+                /* Lines for executing without docker
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
+                */
                 break;
             case "safari":
+                SafariOptions optionsSafari = new SafariOptions();
+                optionsSafari.setCapability(CapabilityType.PROXY, proxy);
+                driver = WebDriverManager.safaridriver().capabilities(optionsSafari).browserInDocker().create();
+                /* Lines for executing without docker
                 WebDriverManager.safaridriver().setup();
                 driver = new SafariDriver();
+                */
                 break;
             default:
                 System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+                ChromeOptions optionsChrome = new ChromeOptions();
+                optionsChrome.setCapability(CapabilityType.PROXY, proxy);
+                driver = WebDriverManager.chromedriver().capabilities(optionsChrome).browserInDocker().create();
+                /* Lines for executing without docker
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionsChrome = new ChromeOptions();
                 optionsChrome.addArguments("--no-sandbox");
@@ -55,6 +83,7 @@ public class Hooks {
                 optionsChrome.addArguments("--disable-dev-shm-usage");
                 optionsChrome.addArguments("--disable-site-isolation-trials");
                 driver = new ChromeDriver(optionsChrome);
+                */
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
