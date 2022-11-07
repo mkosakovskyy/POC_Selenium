@@ -27,6 +27,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Setup Docker
+        uses: docker-practice/actions-setup-docker@master
+
+      - name: Test Docker is up
+        run: docker info
+
       - name: Run Selenium with Maven
         run: mvn clean test -Dbrowser=${{ github.event.inputs.browser }}
 
