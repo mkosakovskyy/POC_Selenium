@@ -36,7 +36,7 @@ public class Hooks {
     public void setUp() {
         /* Proxy for Docker created in .browserInDocker() */
         Proxy proxy = new Proxy();
-        proxy.setHttpProxy("81.171.24.199:3128");
+        proxy.setHttpProxy("212.230.172.6:80");
         try {
             ScreenRecorder.startRecord("main");
         } catch (Exception e) {
@@ -66,8 +66,8 @@ public class Hooks {
             case "safari":
                 SafariOptions optionsSafari = new SafariOptions();
                 optionsSafari.setCapability(CapabilityType.PROXY, proxy);
-                //driver = WebDriverManager.safaridriver().capabilities(optionsSafari).browserInDocker().create();
-                driver = WebDriverManager.safaridriver().capabilities(optionsSafari).create();
+                driver = WebDriverManager.safaridriver().capabilities(optionsSafari).browserInDocker().create();
+                //driver = WebDriverManager.safaridriver().capabilities(optionsSafari).create();
                 /* Lines for executing without docker
                 WebDriverManager.safaridriver().setup();
                 driver = new SafariDriver();
