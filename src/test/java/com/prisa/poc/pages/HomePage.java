@@ -8,7 +8,7 @@ public class HomePage extends AbstractPage {
 
     /** Variables */
 
-    public static final String PAGE_URL = "https://as.com/?nrd=1";
+    public static final String PAGE_URL = "https://as.com/";
     public static final String PAGE_US_URL = "https://us.as.com/";
     HomeLocators homeLoc;
 
