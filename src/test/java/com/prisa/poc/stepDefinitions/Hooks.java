@@ -75,18 +75,19 @@ public class Hooks {
                 break;
             default:
                 System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+                /*
                 ChromeOptions optionsChrome = new ChromeOptions();
                 optionsChrome.setCapability(CapabilityType.PROXY, proxy);
                 driver = WebDriverManager.chromedriver().capabilities(optionsChrome).browserInDocker().create();
-                /* Lines for executing without docker
+                */
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionsChrome = new ChromeOptions();
                 optionsChrome.addArguments("--no-sandbox");
                 optionsChrome.addArguments("--disable-gpu");
                 optionsChrome.addArguments("--disable-dev-shm-usage");
                 optionsChrome.addArguments("--disable-site-isolation-trials");
+                optionsChrome.addArguments("--proxy-server=212.230.172.6:80");
                 driver = new ChromeDriver(optionsChrome);
-                */
         }
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
