@@ -66,7 +66,8 @@ public class Hooks {
             case "safari":
                 SafariOptions optionsSafari = new SafariOptions();
                 optionsSafari.setCapability(CapabilityType.PROXY, proxy);
-                driver = WebDriverManager.safaridriver().capabilities(optionsSafari).browserInDocker().create();
+                //driver = WebDriverManager.safaridriver().capabilities(optionsSafari).browserInDocker().create();
+                driver = WebDriverManager.safaridriver().capabilities(optionsSafari).create();
                 /* Lines for executing without docker
                 WebDriverManager.safaridriver().setup();
                 driver = new SafariDriver();
